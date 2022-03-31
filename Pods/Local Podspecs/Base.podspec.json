@@ -1,0 +1,23 @@
+{
+  "name": "Base",
+  "version": "0.1.0",
+  "summary": "A short description of Base.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/张泽中/Base",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "张泽中": "16664476+zzz1029335886@users.noreply.github.com"
+  },
+  "source": {
+    "git": "https://github.com/张泽中/Base.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "Base/Module/**/*.{swift}",
+  "resources": "Base/Module/**/*.{xcassets,json,storyboard,xib,xcdatamodeld}"
+}

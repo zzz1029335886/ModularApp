@@ -1,0 +1,52 @@
+PODS:
+  - Alamofire (4.9.1)
+  - Base (0.1.0)
+  - Common (0.1.0):
+    - Kingfisher
+    - SnapKit (~> 5.0.1)
+  - HandyJSON (5.0.2)
+  - Kingfisher (6.3.1)
+  - ModuleA (0.1.0):
+    - Base
+    - Networking
+  - Networking (0.1.0):
+    - Alamofire (~> 4.9.1)
+    - HandyJSON (~> 5.0.2)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - Base (from `DevPods/Base`)
+  - Common (from `DevPods/Common`)
+  - ModuleA (from `DevPods/ModuleA`)
+  - Networking (from `DevPods/Networking`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - HandyJSON
+    - Kingfisher
+    - SnapKit
+
+EXTERNAL SOURCES:
+  Base:
+    :path: DevPods/Base
+  Common:
+    :path: DevPods/Common
+  ModuleA:
+    :path: DevPods/ModuleA
+  Networking:
+    :path: DevPods/Networking
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Base: 36fd34af5a8b5bdaa2ebcd339eeed937f1ff331e
+  Common: 87a2b06bf1d93d53b4127c6b8cbc61c28c65e05d
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  ModuleA: b047961ae125768f34ef620a3d3597ec4bc49ebd
+  Networking: cb17da1512da47e3eb13fdc4d0507f03ca767b3c
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: 9e06411a2bb9a6e49b7bf9dfc8094abd9f5e82f2
+
+COCOAPODS: 1.11.2

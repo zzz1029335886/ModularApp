@@ -1,0 +1,31 @@
+{
+  "name": "Networking",
+  "version": "0.1.0",
+  "summary": "A short description of Networking.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/张泽中/Networking",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "张泽中": "16664476+zzz1029335886@users.noreply.github.com"
+  },
+  "source": {
+    "git": "https://github.com/张泽中/Networking.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "Networking/Module/**/*.{swift}",
+  "resources": "Networking/Module/**/*.{xcassets,json,storyboard,xib,xcdatamodeld}",
+  "dependencies": {
+    "HandyJSON": [
+      "~> 5.0.2"
+    ],
+    "Alamofire": [
+      "~> 4.9.1"
+    ]
+  }
+}
