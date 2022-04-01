@@ -51,7 +51,7 @@ extension UIView{
         titleFont: UIFont = .systemFont(ofSize: 16),
         image: UIImage?,
         buttonTitle: String?,
-        buttonAction: BBNullCallBack?) {
+        buttonAction: BBCommon.CallBack.NullCallBack?) {
             self.showNoData(rect: .zero, title: title, titleFont: titleFont, image: image, buttonTitle: buttonTitle, buttonAction: buttonAction)
         }
     
@@ -83,7 +83,7 @@ extension UIView{
                 let y = headerView.frame.maxY
                 var height = self.bounds.height
                 if height == 0 {
-                    height = kScreenHeight
+                    height = BBCommon.kScreenHeight
                 }
                 frame = .init(x: 0, y: y, width: self.bounds.width, height: height - y)
             }else if let collectionView = self as? UICollectionView{
@@ -167,7 +167,7 @@ extension UIView{
         buttonTitles: [String]?,
         paddingX: CGFloat = 32,
         createdButtons: ([UIButton]) -> Void,
-        buttonActions: BBIntCallBack? = nil
+        buttonActions: BBCommon.CallBack.IntCallBack? = nil
     ){
         self.buttonActions = buttonActions
         
@@ -207,7 +207,7 @@ extension UIView{
                     titleFont: UIFont = .systemFont(ofSize: 16),
                     image: UIImage?,
                     buttonTitle: String?,
-                    buttonAction: BBNullCallBack? = nil)
+                    buttonAction: BBCommon.CallBack.NullCallBack? = nil)
     {
         var buttonTitles: [String]? = nil
         if let buttonTitle = buttonTitle {
@@ -335,9 +335,9 @@ extension UIView{
 extension UIView{
     fileprivate
     /// 请求错误后按钮动作
-    var buttonAction: BBNullCallBack?{
+    var buttonAction: BBCommon.CallBack.NullCallBack?{
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.kRequestErrorAction) as? BBNullCallBack
+            return objc_getAssociatedObject(self, &AssociatedKeys.kRequestErrorAction) as? BBCommon.CallBack.NullCallBack
         }
         set{
             objc_setAssociatedObject(self, &AssociatedKeys.kRequestErrorAction, newValue, .OBJC_ASSOCIATION_RETAIN)
@@ -346,9 +346,9 @@ extension UIView{
     
     fileprivate
     /// 请求错误后按钮动作
-    var buttonActions: BBIntCallBack?{
+    var buttonActions: BBCommon.CallBack.IntCallBack?{
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.kRequestErrorActions) as? BBIntCallBack
+            return objc_getAssociatedObject(self, &AssociatedKeys.kRequestErrorActions) as? BBCommon.CallBack.IntCallBack
         }
         set{
             objc_setAssociatedObject(self, &AssociatedKeys.kRequestErrorActions, newValue, .OBJC_ASSOCIATION_RETAIN)

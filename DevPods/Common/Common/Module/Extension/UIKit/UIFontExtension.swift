@@ -8,6 +8,7 @@
 
 import UIKit
 
+public
 extension UIFont{
     class var defaultFont:UIFont {
         get{
@@ -31,7 +32,7 @@ extension UIFont{
         return UIFont.systemFont(ofSize: ofSize, weight: UIFont.Weight.medium)
     }
     
-    open class func semiBold(_ ofSize: CGFloat) -> UIFont {
+    class func semiBold(_ ofSize: CGFloat) -> UIFont {
         return UIFont.systemFont(ofSize: ofSize, weight: .semibold)
     }
     

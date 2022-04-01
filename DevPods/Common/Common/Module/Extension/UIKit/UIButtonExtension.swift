@@ -11,6 +11,7 @@ import Kingfisher
 
 var expandSizeKey = "expandSizeKey"
 
+public
 extension UIButton{
     enum UIButtonImagePosition {
         case top, bottom, left, right

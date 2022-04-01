@@ -1,0 +1,37 @@
+{
+  "name": "ModuleB",
+  "version": "0.1.0",
+  "summary": "A short description of ModuleB.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/zzz1029335886/ModuleB",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zzz1029335886": "16664476+zzz1029335886@users.noreply.github.com"
+  },
+  "source": {
+    "git": "https://github.com/zzz1029335886/ModuleB.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "ModuleB/Module/**/*.{swift}",
+  "resources": "ModuleB/Module/**/*.{xcassets,json,storyboard,xib,xcdatamodeld}",
+  "dependencies": {
+    "Networking": [
+
+    ],
+    "Base": [
+
+    ],
+    "ModuleA": [
+
+    ],
+    "Common": [
+
+    ]
+  }
+}

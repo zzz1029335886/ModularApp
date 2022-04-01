@@ -7,14 +7,20 @@
 
 import UIKit
 import Base
+import Common
 
 open
 class BBModuleAViewController: BBBaseViewController {
-
+    
+    public var pushBlock: BBCommon.CallBack.NullCallBack?
+    
     open
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationBarInColor = .random
+        title = "ModuleA"
+        
         let btn = UIButton.init(type: .contactAdd)
         btn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
         self.view.addSubview(btn)
@@ -23,8 +29,11 @@ class BBModuleAViewController: BBBaseViewController {
     
     @objc
     func btnClick() {
-        let con = BBModuleAViewController.init()
-        self.navigationController?.pushViewController(con, animated: true)
+        if let pushBlock = pushBlock {
+            pushBlock()
+        }else{
+            self.navigationController?.pushViewController(BBModuleAViewController.init(), animated: true)
+        }
     }
     
 

@@ -11,6 +11,10 @@ def module_a_pod
   pod 'ModuleA', :path => 'DevPods/ModuleA'
 end
 
+def module_b_pod
+  pod 'ModuleB', :path => 'DevPods/ModuleB'
+end
+
 def base_pod
   pod 'Base', :path => 'DevPods/Base'
 end
@@ -22,6 +26,7 @@ end
 def development_pods
   networking_pod
   module_a_pod
+  module_b_pod
   base_pod
   common_pod
 end
@@ -44,6 +49,13 @@ target 'ModuleA_Example' do
   project 'DevPods/ModuleA/Example/ModuleA.xcodeproj'
   
   module_a_pod
+end
+
+target 'ModuleB_Example' do
+  use_frameworks!
+  project 'DevPods/ModuleB/Example/ModuleB.xcodeproj'
+  
+  module_b_pod
 end
 
 target 'Base_Example' do

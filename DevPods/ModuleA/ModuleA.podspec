@@ -42,4 +42,7 @@ TODO: Add long description of the pod here.
   # s.dependency 'AFNetworking', '~> 2.3'
   s.dependency 'Networking'
   s.dependency 'Base'
+  s.dependency 'Common'
+  s.dependency 'JXPhotoBrowser', '~> 3.1.3'
+  
 end

@@ -19,5 +19,19 @@
     "ios": "10.0"
   },
   "source_files": "Base/Module/**/*.{swift}",
-  "resources": "Base/Module/**/*.{xcassets,json,storyboard,xib,xcdatamodeld}"
+  "resources": "Base/Module/**/*.{xcassets,json,storyboard,xib,xcdatamodeld}",
+  "dependencies": {
+    "TZImagePickerController": [
+      "~> 3.7.6"
+    ],
+    "MBProgressHUD": [
+      "~> 1.2.0"
+    ],
+    "JXPhotoBrowser": [
+      "~> 3.1.3"
+    ],
+    "Common": [
+
+    ]
+  }
 }

@@ -28,7 +28,7 @@ extension UIColor {
     }
     
     /// 返回随机颜色
-    open class var randomColor: UIColor{
+    open class var random: UIColor{
         get{
             let red = CGFloat(arc4random() % 256) / 255.0
             let green = CGFloat(arc4random() % 256) / 255.0
@@ -224,7 +224,7 @@ extension UIColor {
     
 }
 
-func rgba(_ r: CGFloat,
+public func rgba(_ r: CGFloat,
           _ g: CGFloat,
           _ b: CGFloat,
           _ alpha: CGFloat) -> UIColor {

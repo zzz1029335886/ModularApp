@@ -8,25 +8,38 @@
 import UIKit
 import ModuleA
 import Common
+import ModuleB
 
 class BBTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        add()
-        add()
+        addModuleA()
+        addModuleB()
+        addMine()
     }
     
-    func add() {
+    func addModuleA() {
         let moduleAViewCon = BBModuleAViewController.init()
         moduleAViewCon.title = "ModuleA"
         let con = BBBaseNavigationController.init(rootViewController: moduleAViewCon)
-        
         add(controller: con)
-        
-        BBSpacingButton.init(frame: .zero)
-//        BBSpacingButton.init(frame: .zero)
+    }
+    
+    func addModuleB() {
+        let moduleBViewCon = BBModuleBViewController.init()
+        moduleBViewCon.title = "ModuleB"
+        let con = BBBaseNavigationController.init(rootViewController: moduleBViewCon)
+        add(controller: con)
+    }
+    
+    
+    func addMine() {
+        let moduleBViewCon = BBMineViewController.init()
+        moduleBViewCon.title = "Mine"
+        let con = BBBaseNavigationController.init(rootViewController: moduleBViewCon)
+        add(controller: con)
     }
     
     func add(controller: UIViewController) {

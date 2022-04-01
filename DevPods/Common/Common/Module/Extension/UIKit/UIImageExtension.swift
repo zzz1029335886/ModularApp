@@ -13,6 +13,7 @@ import MobileCoreServices
 
 public typealias CompletionHandler = ((Result<RetrieveImageResult, KingfisherError>) -> Void)
 
+public
 extension UIImageView{
     /**
      设置网络图片
