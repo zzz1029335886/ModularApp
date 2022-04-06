@@ -12,6 +12,11 @@ import Common
 open
 class BBModuleAViewController: BBBaseViewController {
     
+    var frameworkBundle: Bundle{
+        return Bundle.init(for: BBModuleAViewController.self)
+    }
+    
+    
     public var pushBlock: BBCommon.CallBack.NullCallBack?
     
     open
@@ -19,12 +24,20 @@ class BBModuleAViewController: BBBaseViewController {
         super.viewDidLoad()
 
         navigationBarInColor = .random
+        view.backgroundColor = rgba(245, 245, 245, 1)
         title = "ModuleA"
         
-        let btn = UIButton.init(type: .contactAdd)
+        let btn = UIButton.init()
+        
+        /// 加载组件图片
+        let image = UIImage.init(named: "play_icon", in: frameworkBundle, compatibleWith: nil)
+        btn.setImage(image, for: .normal)
         btn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
+        btn.tintColor = .systemBlue
+        btn.frame.size = .init(width: 44, height: 44)
         self.view.addSubview(btn)
         btn.center = self.view.center
+        
     }
     
     @objc
@@ -32,19 +45,21 @@ class BBModuleAViewController: BBBaseViewController {
         if let pushBlock = pushBlock {
             pushBlock()
         }else{
-            self.navigationController?.pushViewController(BBModuleAViewController.init(), animated: true)
+//            .init(string: "https://invtest.nntest.cn/fp/Pj_EV98RTt2gGddvGE24TIn6PCvHnCTeScQGyVchKHNcHWCDxjkofCEY3KXuN3GhVkeWSVc7DYwDDQVZUAR8Jw.pdf")
+            let path = Bundle.main.path(forResource: "Reader", ofType: "pdf")
+            guard let path = path else { return }
+            let url: URL = .init(fileURLWithPath: path)
+            let con = UIDocumentInteractionController.init(url: url)
+            con.delegate = self
+//            con.presentOpenInMenu(from: self.view.bounds, in: self.view, animated: true)
+            con.presentPreview(animated: true)
         }
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension BBModuleAViewController: UIDocumentInteractionControllerDelegate{
+    public func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        return self
     }
-    */
-
 }

@@ -31,11 +31,11 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '10.0'
 
   s.source_files = 'ModuleA/Module/**/*.{swift}'
-  s.resources = "ModuleA/Module/**/*.{xcassets,json,storyboard,xib,xcdatamodeld}"
+  s.resources = "ModuleA/Module/**/*.{xcassets,json,storyboard,xib,xcdatamodeld,pdf}"
 
-  # s.resource_bundles = {
-  #   'ModuleA' => ['ModuleA/Assets/*.png']
-  # }
+#   s.resource_bundles = {
+#     'ModuleA' => ['ModuleA/Module/**/*.png']
+#   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

@@ -19,7 +19,7 @@
     "ios": "10.0"
   },
   "source_files": "ModuleA/Module/**/*.{swift}",
-  "resources": "ModuleA/Module/**/*.{xcassets,json,storyboard,xib,xcdatamodeld}",
+  "resources": "ModuleA/Module/**/*.{xcassets,json,storyboard,xib,xcdatamodeld,pdf}",
   "dependencies": {
     "Networking": [
 

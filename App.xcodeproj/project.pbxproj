@@ -15,6 +15,7 @@
 		D4AC499D27F55D52003C393E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4AC499C27F55D52003C393E /* Assets.xcassets */; };
 		D4AC49A027F55D52003C393E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4AC499E27F55D52003C393E /* LaunchScreen.storyboard */; };
 		D4BFA99C27F5941200FFAFA4 /* BBTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BFA99B27F5941200FFAFA4 /* BBTabBarController.swift */; };
+		D4CBAFDF27FD4DEA003967B0 /* Reader.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D4CBAFDE27FD4DEA003967B0 /* Reader.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D4AC499F27F55D52003C393E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4AC49A127F55D52003C393E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4BFA99B27F5941200FFAFA4 /* BBTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBTabBarController.swift; sourceTree = "<group>"; };
+		D4CBAFDE27FD4DEA003967B0 /* Reader.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Reader.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 		D4AC499227F55D50003C393E /* App */ = {
 			isa = PBXGroup;
 			children = (
+				D4CBAFDE27FD4DEA003967B0 /* Reader.pdf */,
 				D4BFA99927F593EB00FFAFA4 /* Classes */,
 				D4AC499327F55D50003C393E /* AppDelegate.swift */,
 				D4AC499927F55D50003C393E /* Main.storyboard */,
@@ -179,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4AC49A027F55D52003C393E /* LaunchScreen.storyboard in Resources */,
+				D4CBAFDF27FD4DEA003967B0 /* Reader.pdf in Resources */,
 				D4AC499D27F55D52003C393E /* Assets.xcassets in Resources */,
 				D4AC499B27F55D50003C393E /* Main.storyboard in Resources */,
 			);
