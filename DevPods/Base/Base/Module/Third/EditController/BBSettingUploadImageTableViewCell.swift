@@ -47,7 +47,7 @@ class BBSettingUploadImageTableViewCell: BBSettingTopTitleTableViewCell {
         
         guard let uploadImageViewItem = uploadImageViewItem else { return }
         let padding : CGFloat = 10
-        let x = uploadImageViewItem.isBottom ? uploadImageViewItem.titleLabelPadding - padding : titleLabel.frame.maxX - padding
+        let x = uploadImageViewItem.isBottom ? uploadImageViewItem.titleLabelPadding : titleLabel.frame.maxX - padding
         let y = uploadImageViewItem.isBottom ? titleLabel.frame.maxY : titleLabel.frame.minY - padding
         
         var width = contentView.frame.width - x - uploadImageViewItem.titleLabelPadding
@@ -55,12 +55,12 @@ class BBSettingUploadImageTableViewCell: BBSettingTopTitleTableViewCell {
             width = rightView.frame.minX - x - uploadImageViewItem.rightViewLeftPadding
         }
         
+        let cellHeight = uploadImageViewItem.contentHeight ?? uploadImageViewItem.height ?? 44
+        
         imagesView.frame = CGRect(x: x,
                                   y: y,
                                   width: width,
-                                  height: contentView.frame.height - y)
-
-
+                                  height: cellHeight - y)
     }
     
 }
@@ -91,15 +91,29 @@ extension BBSettingUploadImageTableViewCell: BBPublishImagesViewDelegate, TZImag
     
     func publishImagesViewFrameChanged(_ view: BBPublishImagesView, changedHeight: CGFloat) {
         guard let uploadImageViewItem = uploadImageViewItem else { return }
-        let height = uploadImageViewItem.contentHeight ?? uploadImageViewItem.height ?? 44
-        uploadImageViewItem.contentHeight = max(height + changedHeight, 44)
-        self.superTableView()?.beginUpdates()
-        self.displayed()
-        self.superTableView()?.endUpdates()
+        let defaultHeight = uploadImageViewItem.isBottom ? view.frame.origin.y : 44
+        let height = uploadImageViewItem.contentHeight ?? uploadImageViewItem.height ?? defaultHeight
+        
+        updateContentHeight(max(height + changedHeight, defaultHeight))
+    }
+    
+    func publishImagesView(_ view: BBPublishImagesView, suggestHeight: CGFloat) {
+        
     }
     
     func publishImagesViewRemoved(_ view: BBPublishImagesView, index: Int) {
         self.uploadImageViewItem?.imageUrls.remove(at: index)
         self.selectedAssets.remove(at: index)
+    }
+    
+    func updateContentHeight(_ height: CGFloat) {
+        if uploadImageViewItem?.contentHeight == height {
+            return
+        }
+        
+        uploadImageViewItem?.contentHeight = height
+        self.superTableView()?.beginUpdates()
+        self.displayed()
+        self.superTableView()?.endUpdates()
     }
 }

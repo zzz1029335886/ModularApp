@@ -20,6 +20,7 @@ class BBSettingTitleTableViewCell: BBSettingTableViewCell {
         self.titleLabel.text = titleItem.title
         self.titleLabel.textColor = titleItem.titleTextColor ?? UIColor.init(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
         self.titleLabel.font = titleItem.titleFont ?? UIFont.medium(15)
+        self.titleLabel.numberOfLines = titleItem.titleNumberOfLines
         self.titleItem = titleItem
         
     }

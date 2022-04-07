@@ -12,11 +12,6 @@ import Common
 open
 class BBModuleAViewController: BBBaseViewController {
     
-    var frameworkBundle: Bundle{
-        return Bundle.init(for: BBModuleAViewController.self)
-    }
-    
-    
     public var pushBlock: BBCommon.CallBack.NullCallBack?
     
     open
@@ -30,7 +25,7 @@ class BBModuleAViewController: BBBaseViewController {
         let btn = UIButton.init()
         
         /// 加载组件图片
-        let image = UIImage.init(named: "play_icon", in: frameworkBundle, compatibleWith: nil)
+        let image = UIImage.init(inModuleNamed: "play_icon")
         btn.setImage(image, for: .normal)
         btn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
         btn.tintColor = .systemBlue
@@ -46,7 +41,7 @@ class BBModuleAViewController: BBBaseViewController {
             pushBlock()
         }else{
 //            .init(string: "https://invtest.nntest.cn/fp/Pj_EV98RTt2gGddvGE24TIn6PCvHnCTeScQGyVchKHNcHWCDxjkofCEY3KXuN3GhVkeWSVc7DYwDDQVZUAR8Jw.pdf")
-            let path = Bundle.main.path(forResource: "Reader", ofType: "pdf")
+            let path = BBModuleA.frameworkBundle.path(forResource: "Reader", ofType: "pdf")
             guard let path = path else { return }
             let url: URL = .init(fileURLWithPath: path)
             let con = UIDocumentInteractionController.init(url: url)

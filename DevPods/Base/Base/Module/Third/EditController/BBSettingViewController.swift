@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+public
 protocol BBSettingViewControllerDelegate: AnyObject {
     func settingViewController(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath, didSelectItem item: BBSettingItem)
     
@@ -22,21 +22,22 @@ protocol BBSettingViewControllerDelegate: AnyObject {
     
 }
 
+public
 extension BBSettingViewControllerDelegate{
-    func settingViewController(_ tableView: UITableView, switchValueChanged item: BBSettingSwitchItem?){}
+    public func settingViewController(_ tableView: UITableView, switchValueChanged item: BBSettingSwitchItem?){}
     
-    func settingViewController(_ item: BBSettingItem, didEndEditing textField: UITextField){}
+    public func settingViewController(_ item: BBSettingItem, didEndEditing textField: UITextField){}
     
-    func settingViewController(_ item: BBSettingItem, textChanged text: String?){}
+    public func settingViewController(_ item: BBSettingItem, textChanged text: String?){}
     
-    func settingViewController(_ item: BBSettingItem, didBeginEditing textField: UITextField){}
+    public func settingViewController(_ item: BBSettingItem, didBeginEditing textField: UITextField){}
 }
 
 
 open class BBSettingViewController: BBBaseTableViewController {
     
-    var groups: [BBSettingGroup] = []
-    weak var delegate : BBSettingViewControllerDelegate?
+    open var groups: [BBSettingGroup] = []
+    open weak var delegate : BBSettingViewControllerDelegate?
     
     open func addGroup(_ group:BBSettingGroup){
         self.groups.append(group)

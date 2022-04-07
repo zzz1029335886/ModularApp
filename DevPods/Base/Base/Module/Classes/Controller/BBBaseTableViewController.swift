@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 open class BBBaseTableViewController: BBBaseViewController {
     
@@ -46,15 +47,15 @@ open class BBBaseTableViewController: BBBaseViewController {
     var isSeparatorStyle : Bool = false
 }
 
-//class BBBaseScrollViewController: BBBaseViewController {
-//    lazy var scrollView: UIScrollView = {
-//        let scrollView = UIScrollView(frame: view.bounds)
-//        scrollView.showsVerticalScrollIndicator = false
-//        self.view.addSubview(scrollView)
-//        scrollView.snp.makeConstraints { make in
-//            make.bottom.leading.trailing.equalToSuperview()
-//            make.top.equalTo(self.snpSafeAreaTop)
-//        }
-//        return scrollView
-//    }()
-//}
+class BBBaseScrollViewController: BBBaseViewController {
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView(frame: view.bounds)
+        scrollView.showsVerticalScrollIndicator = false
+        self.view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
+            make.bottom.leading.trailing.equalToSuperview()
+            make.top.equalTo(self.snpSafeAreaTop)
+        }
+        return scrollView
+    }()
+}

@@ -9,6 +9,7 @@
 import UIKit
 import Networking
 import ModuleA
+import ModuleB
 
 class ViewController: BBModuleAViewController {
 
@@ -26,7 +27,8 @@ class ViewController: BBModuleAViewController {
     
     @objc
     func buttonClick() {
-        
+        let con = BBModuleBViewController()
+        self.navigationController?.pushViewController(con, animated: true)
     }
 
     override func didReceiveMemoryWarning() {

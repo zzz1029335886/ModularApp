@@ -42,5 +42,6 @@ TODO: Add long description of the pod here.
   s.dependency 'TZImagePickerController', '~> 3.7.6'
   s.dependency 'MBProgressHUD', '~> 1.2.0'
   s.dependency 'JXPhotoBrowser', '~> 3.1.3'
+  s.dependency 'SnapKit'
   s.dependency 'Common'
 end

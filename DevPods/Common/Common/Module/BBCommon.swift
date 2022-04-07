@@ -82,3 +82,7 @@ public struct BBCommon {
     public static let kTabBarHeight : CGFloat = kBottomSafeHeight + 49
 }
 
+public
+protocol ModuleProtocol: NSObjectProtocol {
+    static var frameworkBundle: Bundle { get set }
+}

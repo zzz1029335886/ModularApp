@@ -25,6 +25,12 @@ protocol BBPublishImagesViewDelegate: AnyObject {
     ///   - changedHeight: 改变的高度，负表示减少
     func publishImagesViewFrameChanged(_ view: BBPublishImagesView, changedHeight: CGFloat)
     
+    /// 推荐高度
+    /// - Parameters:
+    ///   - view: 当前view
+    ///   - suggestHeight: 推荐高度
+    func publishImagesView(_ view: BBPublishImagesView, suggestHeight: CGFloat)
+
     
     /// 删除第几个
     /// - Parameters:
@@ -142,6 +148,8 @@ class BBPublishImagesView: UIView{
         
         let lineCount = CGFloat(self.imageUrls.count / self.countInLine + flag)
         self.frame.size.height = max(1, lineCount) * (size.height + self.layout.minimumLineSpacing) - self.layout.minimumLineSpacing
+        self.delegate?.publishImagesView(self, suggestHeight: self.frame.height)
+        
         let changedHeight = self.frame.height - height
         if abs(changedHeight) < 1 {
             return
@@ -301,7 +309,8 @@ class BBPublishImagesViewCell: UICollectionViewCell {
         self.contentView.addSubview(deleteButton)
         
         if #available(iOS 13.0, *) {
-            button.setImage(UIImage.init(systemName: "plus.square.fill"), for: .normal)
+            button.tintColor = .darkGray
+            button.setImage(UIImage.init(systemName: "plus.square.fill", withConfiguration: UIImage.SymbolConfiguration.init(pointSize: 44)), for: .normal)
             deleteButton.setImage(UIImage.init(systemName: "minus.circle.fill"), for: .normal)
             deleteButton.tintColor = .systemRed
         } else {

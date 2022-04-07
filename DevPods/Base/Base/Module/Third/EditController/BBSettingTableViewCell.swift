@@ -61,6 +61,7 @@ public class BBSettingTableViewCell: UITableViewCell {
             lineView.backgroundColor = separatorColor
             if let separatorInsets = baseItem.separatorInsets {
                 contentView.bringSubviewToFront(lineView)
+                lineView.autoresizingMask = [.flexibleTopMargin]
                 lineView.frame = .init(x: separatorInsets.left,
                                        y: frame.height - separatorInsets.bottom - 0.75,
                                        width: frame.width - separatorInsets.left - separatorInsets.right,

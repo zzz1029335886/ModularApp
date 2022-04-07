@@ -4,6 +4,7 @@ PODS:
     - Common
     - JXPhotoBrowser (~> 3.1.3)
     - MBProgressHUD (~> 1.2.0)
+    - SnapKit
     - TZImagePickerController (~> 3.7.6)
   - Common (0.1.0):
     - Kingfisher
@@ -59,7 +60,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  Base: a70902df64fd545ad5b508982412b86fefef8fe4
+  Base: 60e1113f150575e2eb69f58d094374bb05bdfce4
   Common: 87a2b06bf1d93d53b4127c6b8cbc61c28c65e05d
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   JXPhotoBrowser: d32e94e1226d43bf5ed83164e3f5b651fed625e0

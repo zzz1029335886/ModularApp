@@ -40,6 +40,7 @@ class BBSettingTopTitleTableViewCell: BBSettingTableViewCell {
         titleLabel.text = titleItem.title
         titleLabel.textColor = titleItem.titleTextColor
         titleLabel.font = titleItem.titleFont
+        titleLabel.numberOfLines = titleItem.titleNumberOfLines
         self.titleItem = titleItem
         layoutIfNeeded()
     }

@@ -6,9 +6,17 @@
 //
 
 import UIKit
+import SnapKit
 
 open class BBBaseViewController: UIViewController, RainbowColorSource {
     lazy var rainbowNavigation = RainbowNavigation()
+    var snpSafeAreaTop : ConstraintItem{
+        if #available(iOS 11.0, *) {
+            return self.view.safeAreaLayoutGuide.snp.top
+        } else {
+            return self.topLayoutGuide.snp.top
+        }
+    }
     
     open override func viewDidLoad() {
         super.viewDidLoad()

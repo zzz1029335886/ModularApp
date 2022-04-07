@@ -11,24 +11,25 @@ import Common
 import ModuleB
 
 class BBTabBarController: UITabBarController {
-
+    let moduleAViewCon = BBModuleAViewController.init()
+    let moduleBViewCon = BBModuleBViewController.init()
+    let mineViewCon = BBMineViewController.init()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addMine()
         addModuleA()
         addModuleB()
-        addMine()
     }
     
     func addModuleA() {
-        let moduleAViewCon = BBModuleAViewController.init()
         moduleAViewCon.title = "ModuleA"
         let con = BBBaseNavigationController.init(rootViewController: moduleAViewCon)
         add(controller: con)
     }
     
     func addModuleB() {
-        let moduleBViewCon = BBModuleBViewController.init()
         moduleBViewCon.title = "ModuleB"
         let con = BBBaseNavigationController.init(rootViewController: moduleBViewCon)
         add(controller: con)
@@ -36,9 +37,8 @@ class BBTabBarController: UITabBarController {
     
     
     func addMine() {
-        let moduleBViewCon = BBMineViewController.init()
-        moduleBViewCon.title = "Mine"
-        let con = BBBaseNavigationController.init(rootViewController: moduleBViewCon)
+        mineViewCon.title = "Mine"
+        let con = BBBaseNavigationController.init(rootViewController: mineViewCon)
         add(controller: con)
     }
     

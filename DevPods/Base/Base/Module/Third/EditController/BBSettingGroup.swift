@@ -74,6 +74,8 @@ open class BBSettingItem: NSObject {
 public class BBSettingTitleItem: BBSettingItem {
     /// 标题
     public var title: String?
+    /// 标题行数
+    public var titleNumberOfLines = 1
     /// 标题 左间距
     public var titleLabelPadding = 16 as CGFloat
     /// 标题 上间距
@@ -231,7 +233,6 @@ public class BBSettingUploadImageViewItem: BBSettingTitleItem {
     
     /// 是否浏览模式，浏览模式下不可上传
     public var isBrowse = false
-
 }
 
 /**

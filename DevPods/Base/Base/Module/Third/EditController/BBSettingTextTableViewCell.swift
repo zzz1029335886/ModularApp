@@ -71,8 +71,9 @@ class BBSettingTextTableViewCell: BBSettingTopTitleTableViewCell {
                              y: y,
                              width: width,
                              height: height)
-        updateHeight()
-        
+        DispatchQueue.main.async {
+            self.updateHeight()
+        }
     }
     
     func updateHeight() {
@@ -84,8 +85,8 @@ class BBSettingTextTableViewCell: BBSettingTopTitleTableViewCell {
             return
         }        
         textItem.contentHeight = contentHeight
-//        tableView?.beginUpdates()
-//        tableView?.endUpdates()
+        superTableView()?.beginUpdates()
+        superTableView()?.endUpdates()
     }
         
 }
