@@ -17,21 +17,27 @@ class BBTabBarController: UITabBarController {
     let moduleBViewCon = BBModuleBViewController.init()
     let moduleABViewCon = BBModuleABViewController.init()
     let mineViewCon = BBMineViewController.init()
-    
+    let componentCon = BBComponentViewController.init()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addModuleAB()
+        addModuleComponent()
         addMine()
         addModuleA()
-        addModuleB()
-        
-        BBComponent.init()
+        addModuleB()        
     }
     
     func addModuleAB() {
         moduleABViewCon.title = "ModuleAB"
         let con = BBBaseNavigationController.init(rootViewController: moduleABViewCon)
+        add(controller: con)
+    }
+    
+    func addModuleComponent() {
+        componentCon.title = "Component"
+        let con = BBBaseNavigationController.init(rootViewController: componentCon)
         add(controller: con)
     }
     
