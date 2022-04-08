@@ -7,18 +7,23 @@
 
 import UIKit
 import Base
-import ModuleA
+import Common
 
 open
 class BBModuleBViewController: BBBaseViewController {
 
+    public var pushBlock: BBCommon.CallBack.NullCallBack?
+    
     open
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "ModuleB"
         
-        let btn = UIButton.init(type: .contactAdd)
+        let btn = UIButton.init()
+        btn.setTitle("push", for: .normal)
+        btn.setTitleColor(.systemBlue, for: .normal)
+        btn.sizeToFit()
         btn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
         self.view.addSubview(btn)
         btn.center = self.view.center
@@ -26,26 +31,7 @@ class BBModuleBViewController: BBBaseViewController {
     
     @objc
     func btnClick() {
-        let con = BBModuleAViewController.init()
-        con.pushBlock = {
-            [weak self]
-            in
-            guard let `self` = self else { return }
-            
-            self.navigationController?.pushViewController(BBModuleBViewController.init(), animated: true)
-        }
-        self.navigationController?.pushViewController(con, animated: true)
+        self.pushBlock?()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -40,13 +40,11 @@ class BBModuleAViewController: BBBaseViewController {
         if let pushBlock = pushBlock {
             pushBlock()
         }else{
-//            .init(string: "https://invtest.nntest.cn/fp/Pj_EV98RTt2gGddvGE24TIn6PCvHnCTeScQGyVchKHNcHWCDxjkofCEY3KXuN3GhVkeWSVc7DYwDDQVZUAR8Jw.pdf")
             let path = BBModuleA.frameworkBundle.path(forResource: "Reader", ofType: "pdf")
             guard let path = path else { return }
             let url: URL = .init(fileURLWithPath: path)
             let con = UIDocumentInteractionController.init(url: url)
             con.delegate = self
-//            con.presentOpenInMenu(from: self.view.bounds, in: self.view, animated: true)
             con.presentPreview(animated: true)
         }
     }

@@ -70,7 +70,6 @@ PODS:
   - ModuleB (0.1.0):
     - Base
     - Common
-    - ModuleA
     - Networking
   - Networking (0.1.0):
     - Alamofire (~> 4.9.1)
@@ -134,7 +133,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   ModuleA: 3279a7b8dd9ed475d1ab0d64416701e9ce60d598
   ModuleAB: 057b494e95e89709d3775df1b2540bcff1509df0
-  ModuleB: 0977d2b2187d527785566d6d5ceed8fd96b11457
+  ModuleB: d2d34e981b3f911139e2566df6b7864b8159d87e
   Networking: cb17da1512da47e3eb13fdc4d0507f03ca767b3c
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   TZImagePickerController: fb446ac06ae9c217bc849185646a68465bcd0dd4

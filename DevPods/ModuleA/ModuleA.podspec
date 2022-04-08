@@ -44,5 +44,4 @@ TODO: Add long description of the pod here.
   s.dependency 'Base'
   s.dependency 'Common'
   s.dependency 'JXPhotoBrowser', '~> 3.1.3'
-  
 end

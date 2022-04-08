@@ -42,6 +42,5 @@ TODO: Add long description of the pod here.
   # s.dependency 'AFNetworking', '~> 2.3'
   s.dependency 'Networking'
   s.dependency 'Base'
-  s.dependency 'ModuleA'
   s.dependency 'Common'
 end

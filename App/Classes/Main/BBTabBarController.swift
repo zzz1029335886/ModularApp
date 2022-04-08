@@ -26,7 +26,7 @@ class BBTabBarController: UITabBarController {
         addModuleComponent()
         addMine()
         addModuleA()
-        addModuleB()        
+        addModuleB()
     }
     
     func addModuleAB() {
@@ -43,12 +43,27 @@ class BBTabBarController: UITabBarController {
     
     func addModuleA() {
         moduleAViewCon.title = "ModuleA"
+        moduleAViewCon.pushBlock = {
+            [weak self]
+            in
+            guard let `self` = self else { return }
+            let con = BBModuleBViewController.init()
+            self.moduleAViewCon.navigationController?.pushViewController(con, animated: true)
+        }
+        
         let con = BBBaseNavigationController.init(rootViewController: moduleAViewCon)
         add(controller: con)
     }
     
     func addModuleB() {
         moduleBViewCon.title = "ModuleB"
+        moduleBViewCon.pushBlock = {
+            [weak self]
+            in
+            guard let `self` = self else { return }
+            let con = BBModuleAViewController.init()
+            self.moduleBViewCon.navigationController?.pushViewController(con, animated: true)
+        }
         let con = BBBaseNavigationController.init(rootViewController: moduleBViewCon)
         add(controller: con)
     }
