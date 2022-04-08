@@ -24,13 +24,13 @@ protocol BBSettingViewControllerDelegate: AnyObject {
 
 public
 extension BBSettingViewControllerDelegate{
-    public func settingViewController(_ tableView: UITableView, switchValueChanged item: BBSettingSwitchItem?){}
+    func settingViewController(_ tableView: UITableView, switchValueChanged item: BBSettingSwitchItem?){}
     
-    public func settingViewController(_ item: BBSettingItem, didEndEditing textField: UITextField){}
+    func settingViewController(_ item: BBSettingItem, didEndEditing textField: UITextField){}
     
-    public func settingViewController(_ item: BBSettingItem, textChanged text: String?){}
+    func settingViewController(_ item: BBSettingItem, textChanged text: String?){}
     
-    public func settingViewController(_ item: BBSettingItem, didBeginEditing textField: UITextField){}
+    func settingViewController(_ item: BBSettingItem, didBeginEditing textField: UITextField){}
 }
 
 

@@ -6,10 +6,53 @@ PODS:
     - MBProgressHUD (~> 1.2.0)
     - SnapKit
     - TZImagePickerController (~> 3.7.6)
+  - CHTCollectionViewWaterfallLayout (0.9.10):
+    - CHTCollectionViewWaterfallLayout/Swift (= 0.9.10)
+  - CHTCollectionViewWaterfallLayout/Swift (0.9.10)
   - Common (0.1.0):
     - Kingfisher
     - SnapKit (~> 5.0.1)
+  - Component (0.1.0):
+    - Base
+    - CHTCollectionViewWaterfallLayout
+    - Common
+    - IGListKit
+    - JXBanner
   - HandyJSON (5.0.2)
+  - IGListDiffKit (4.0.0)
+  - IGListKit (4.0.0):
+    - IGListDiffKit (= 4.0.0)
+  - JXBanner (0.3.6):
+    - JXBanner/Banner (= 0.3.6)
+    - JXBanner/PageControl (= 0.3.6)
+  - JXBanner/Banner (0.3.6):
+    - JXBanner/Banner/API (= 0.3.6)
+    - JXBanner/Banner/Banner (= 0.3.6)
+    - JXBanner/Banner/Cell (= 0.3.6)
+    - JXBanner/Banner/Common (= 0.3.6)
+    - JXBanner/Banner/Transform (= 0.3.6)
+  - JXBanner/Banner/API (0.3.6):
+    - JXBanner/Banner/Cell
+    - JXBanner/PageControl
+  - JXBanner/Banner/Banner (0.3.6):
+    - JXBanner/Banner/API
+    - JXBanner/Banner/Common
+    - JXBanner/Banner/Transform
+  - JXBanner/Banner/Cell (0.3.6)
+  - JXBanner/Banner/Common (0.3.6)
+  - JXBanner/Banner/Transform (0.3.6):
+    - JXBanner/Banner/API
+  - JXBanner/PageControl (0.3.6):
+    - JXPageControl
+  - JXPageControl (0.1.5):
+    - JXPageControl/Common (= 0.1.5)
+    - JXPageControl/Jump (= 0.1.5)
+    - JXPageControl/Transform (= 0.1.5)
+  - JXPageControl/Common (0.1.5)
+  - JXPageControl/Jump (0.1.5):
+    - JXPageControl/Common
+  - JXPageControl/Transform (0.1.5):
+    - JXPageControl/Common
   - JXPhotoBrowser (3.1.3)
   - Kingfisher (6.3.1)
   - MBProgressHUD (1.2.0)
@@ -17,6 +60,12 @@ PODS:
     - Base
     - Common
     - JXPhotoBrowser (~> 3.1.3)
+    - Networking
+  - ModuleAB (0.1.0):
+    - Base
+    - Common
+    - ModuleA
+    - ModuleB
     - Networking
   - ModuleB (0.1.0):
     - Base
@@ -32,14 +81,21 @@ PODS:
 DEPENDENCIES:
   - Base (from `DevPods/Base`)
   - Common (from `DevPods/Common`)
+  - Component (from `DevPods/Component`)
   - ModuleA (from `DevPods/ModuleA`)
+  - ModuleAB (from `DevPods/ModuleAB`)
   - ModuleB (from `DevPods/ModuleB`)
   - Networking (from `DevPods/Networking`)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - CHTCollectionViewWaterfallLayout
     - HandyJSON
+    - IGListDiffKit
+    - IGListKit
+    - JXBanner
+    - JXPageControl
     - JXPhotoBrowser
     - Kingfisher
     - MBProgressHUD
@@ -51,8 +107,12 @@ EXTERNAL SOURCES:
     :path: DevPods/Base
   Common:
     :path: DevPods/Common
+  Component:
+    :path: DevPods/Component
   ModuleA:
     :path: DevPods/ModuleA
+  ModuleAB:
+    :path: DevPods/ModuleAB
   ModuleB:
     :path: DevPods/ModuleB
   Networking:
@@ -61,17 +121,24 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Base: 60e1113f150575e2eb69f58d094374bb05bdfce4
+  CHTCollectionViewWaterfallLayout: b989a459788d7657ac010e03bc0f7eedca95a420
   Common: 87a2b06bf1d93d53b4127c6b8cbc61c28c65e05d
+  Component: e4d901cad514ebe5d50cd86ecc6125524ada6718
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
+  IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
+  JXBanner: 348dbef856e786494cbf30fb45d6b84826f2d3c5
+  JXPageControl: e9487b39e2e58fc17790833214f3b8e935bef98b
   JXPhotoBrowser: d32e94e1226d43bf5ed83164e3f5b651fed625e0
   Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   ModuleA: 3279a7b8dd9ed475d1ab0d64416701e9ce60d598
+  ModuleAB: 057b494e95e89709d3775df1b2540bcff1509df0
   ModuleB: 0977d2b2187d527785566d6d5ceed8fd96b11457
   Networking: cb17da1512da47e3eb13fdc4d0507f03ca767b3c
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   TZImagePickerController: fb446ac06ae9c217bc849185646a68465bcd0dd4
 
-PODFILE CHECKSUM: c916dc5a08bbf617da903c08f52c373595dd345c
+PODFILE CHECKSUM: 2c51d40002ca3772085fbe772095e7b67aff8be3
 
 COCOAPODS: 1.11.2

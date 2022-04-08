@@ -1,0 +1,40 @@
+{
+  "name": "Component",
+  "version": "0.1.0",
+  "summary": "A short description of Component.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/zzz1029335886/Component",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zzz1029335886": "16664476+zzz1029335886@users.noreply.github.com"
+  },
+  "source": {
+    "git": "https://github.com/zzz1029335886/Component.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "Component/Module/**/*.{swift,h,m}",
+  "resources": "Component/Module/**/*.{xcassets,json,storyboard,xib,xcdatamodeld}",
+  "dependencies": {
+    "IGListKit": [
+
+    ],
+    "Base": [
+
+    ],
+    "Common": [
+
+    ],
+    "JXBanner": [
+
+    ],
+    "CHTCollectionViewWaterfallLayout": [
+
+    ]
+  }
+}
