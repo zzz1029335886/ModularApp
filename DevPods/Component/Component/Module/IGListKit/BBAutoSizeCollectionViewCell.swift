@@ -10,7 +10,8 @@ import UIKit
 
 protocol BBAutoSizeCollectionViewCellLayoutDelegate: AnyObject {
     func autoSizeCollectionViewCell(_ cell: BBAutoSizeCollectionViewCell, layout size: CGSize)
-    func autoSizeCollectionViewCellReload(_ cell: BBAutoSizeCollectionViewCell)
+    func autoSizeCollectionViewCellComplete(_ cell: BBAutoSizeCollectionViewCell, size: CGSize)
+    func autoSizeCollectionViewCellReload(_ cell: BBAutoSizeCollectionViewCell, isLayout: Bool)
 }
 
 class BBAutoSizeCollectionViewCell: UICollectionViewCell {
@@ -25,15 +26,18 @@ class BBAutoSizeCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// 是否自适应高度
     var shouldPreferredLayoutAttributesFitting = true
     
-    
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        
         if !shouldPreferredLayoutAttributesFitting {
+            self.layoutDelegate?.autoSizeCollectionViewCellComplete(self, size: .zero)
             return super.preferredLayoutAttributesFitting(layoutAttributes)
         }
         
         if Int(layoutAttributes.frame.size.height) != defaultHeight {
+            self.layoutDelegate?.autoSizeCollectionViewCellComplete(self, size: layoutAttributes.frame.size)
             return super.preferredLayoutAttributesFitting(layoutAttributes)
         }
         
@@ -44,6 +48,7 @@ class BBAutoSizeCollectionViewCell: UICollectionViewCell {
         size.height = ceil(size.height)
         
         if size.height == 0 {
+            self.layoutDelegate?.autoSizeCollectionViewCellComplete(self, size: size)
             return super.preferredLayoutAttributesFitting(layoutAttributes)
         }
         

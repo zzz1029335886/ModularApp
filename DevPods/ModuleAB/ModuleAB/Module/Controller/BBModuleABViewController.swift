@@ -35,8 +35,8 @@ class BBModuleABViewController: BBBaseViewController {
     
     @objc
     func btnClick() {
-        let con = BBModuleAViewController()
-        self.navigationController?.pushViewController(con, animated: true)
+//        let con = BBModuleAViewController()
+//        self.navigationController?.pushViewController(con, animated: true)
     }
     
     @objc

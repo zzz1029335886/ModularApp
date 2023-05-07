@@ -10,9 +10,10 @@ import Base
 import Common
 
 open
-class BBModuleBViewController: BBBaseViewController {
-
-    public var pushBlock: BBCommon.CallBack.NullCallBack?
+class BBModuleBViewController: BBBaseViewController, Common.ModuleControllerBuilderProtocol {
+    public var moduleViewDidLoadBlock: Common.BBCommon.CallBack.NullCallBack?
+    
+    public var moduleData: Any?
     
     open
     override func viewDidLoad() {
@@ -21,7 +22,7 @@ class BBModuleBViewController: BBBaseViewController {
         title = "ModuleB"
         
         let btn = UIButton.init()
-        btn.setTitle("push", for: .normal)
+        btn.setTitle("pushA", for: .normal)
         btn.setTitleColor(.systemBlue, for: .normal)
         btn.sizeToFit()
         btn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
@@ -31,7 +32,8 @@ class BBModuleBViewController: BBBaseViewController {
     
     @objc
     func btnClick() {
-        self.pushBlock?()
+        let con = BBCommon.moduleApp.getController(name: "A")
+        navigationController?.pushViewController(con, animated: true)
     }
 
 }

@@ -13,14 +13,15 @@ import ModuleAB
 import Component
 
 class BBTabBarController: UITabBarController {
-    let moduleAViewCon = BBModuleAViewController.init()
-    let moduleBViewCon = BBModuleBViewController.init()
+    let moduleAViewCon = BBCommon.moduleApp.getController(name: "A")
+    let moduleBViewCon = BBCommon.moduleApp.getController(name: "B")
     let moduleABViewCon = BBModuleABViewController.init()
     let mineViewCon = BBMineViewController.init()
     let componentCon = BBComponentViewController.init()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         addModuleAB()
         addModuleComponent()
@@ -43,13 +44,6 @@ class BBTabBarController: UITabBarController {
     
     func addModuleA() {
         moduleAViewCon.title = "ModuleA"
-        moduleAViewCon.pushBlock = {
-            [weak self]
-            in
-            guard let `self` = self else { return }
-            let con = BBModuleBViewController.init()
-            self.moduleAViewCon.navigationController?.pushViewController(con, animated: true)
-        }
         
         let con = BBBaseNavigationController.init(rootViewController: moduleAViewCon)
         add(controller: con)
@@ -57,13 +51,7 @@ class BBTabBarController: UITabBarController {
     
     func addModuleB() {
         moduleBViewCon.title = "ModuleB"
-        moduleBViewCon.pushBlock = {
-            [weak self]
-            in
-            guard let `self` = self else { return }
-            let con = BBModuleAViewController.init()
-            self.moduleBViewCon.navigationController?.pushViewController(con, animated: true)
-        }
+        
         let con = BBBaseNavigationController.init(rootViewController: moduleBViewCon)
         add(controller: con)
     }

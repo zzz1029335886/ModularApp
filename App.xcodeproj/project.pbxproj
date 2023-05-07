@@ -10,6 +10,7 @@
 		1D87BD26FD437D4BDB9B956F /* Pods_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16A7517C8C2BEBBA77392BC /* Pods_App.framework */; };
 		D43AB5FB27F6EF1300EC3423 /* BBMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43AB5FA27F6EF1300EC3423 /* BBMineViewController.swift */; };
 		D43AB5FD27F6F01600EC3423 /* BBMineSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43AB5FC27F6F01600EC3423 /* BBMineSettingViewController.swift */; };
+		D469AF73280ECD4700AE4D84 /* BBTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D469AF72280ECD4700AE4D84 /* BBTest.swift */; };
 		D4AC499427F55D50003C393E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AC499327F55D50003C393E /* AppDelegate.swift */; };
 		D4AC499B27F55D50003C393E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4AC499927F55D50003C393E /* Main.storyboard */; };
 		D4AC499D27F55D52003C393E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4AC499C27F55D52003C393E /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		C16A7517C8C2BEBBA77392BC /* Pods_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D43AB5FA27F6EF1300EC3423 /* BBMineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBMineViewController.swift; sourceTree = "<group>"; };
 		D43AB5FC27F6F01600EC3423 /* BBMineSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBMineSettingViewController.swift; sourceTree = "<group>"; };
+		D469AF72280ECD4700AE4D84 /* BBTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBTest.swift; sourceTree = "<group>"; };
 		D4AC499027F55D50003C393E /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4AC499327F55D50003C393E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4AC499A27F55D50003C393E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				D43AB5F927F6EF0500EC3423 /* Mine */,
 				D4BFA99A27F593F600FFAFA4 /* Main */,
+				D469AF72280ECD4700AE4D84 /* BBTest.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			files = (
 				D43AB5FB27F6EF1300EC3423 /* BBMineViewController.swift in Sources */,
 				D43AB5FD27F6F01600EC3423 /* BBMineSettingViewController.swift in Sources */,
+				D469AF73280ECD4700AE4D84 /* BBTest.swift in Sources */,
 				D4AC499427F55D50003C393E /* AppDelegate.swift in Sources */,
 				D4BFA99C27F5941200FFAFA4 /* BBTabBarController.swift in Sources */,
 			);
@@ -300,6 +304,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DOCC_EXEC = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/docc;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -360,6 +365,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DOCC_EXEC = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/docc;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

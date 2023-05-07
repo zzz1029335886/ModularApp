@@ -9,44 +9,55 @@ import UIKit
 import Base
 import Common
 
-open
-class BBModuleAViewController: BBBaseViewController {
+class BBModuleAViewController: BBBaseViewController, Common.ModuleControllerBuilderProtocol {
+    var moduleData: Any?
     
-    public var pushBlock: BBCommon.CallBack.NullCallBack?
+    var moduleViewDidLoadBlock: Common.BBCommon.CallBack.NullCallBack?
+        
     
-    open
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationBarInColor = .random
-        view.backgroundColor = rgba(245, 245, 245, 1)
+        view.backgroundColor = rgba(222, 222, 222, 1)
         title = "ModuleA"
         
-        let btn = UIButton.init()
+        let imageBtn = UIButton.init()
         
         /// 加载组件图片
         let image = UIImage.init(inModuleNamed: "play_icon")
-        btn.setImage(image, for: .normal)
-        btn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
-        btn.tintColor = .systemBlue
-        btn.frame.size = .init(width: 44, height: 44)
-        self.view.addSubview(btn)
-        btn.center = self.view.center
+        imageBtn.setImage(image, for: .normal)
+        imageBtn.addTarget(self, action: #selector(iconClick), for: .touchUpInside)
+        imageBtn.tintColor = .systemBlue
+        imageBtn.frame.size = .init(width: 44, height: 44)
+        self.view.addSubview(imageBtn)
+        imageBtn.center = self.view.center
         
+        let btn = UIButton.init()
+        btn.setTitle("pushA", for: .normal)
+        btn.setTitleColor(.systemBlue, for: .normal)
+        btn.sizeToFit()
+        btn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
+        self.view.addSubview(btn)
+        btn.center = .init(x: self.view.center.x, y: self.view.center.y + 100)        
     }
     
     @objc
     func btnClick() {
-        if let pushBlock = pushBlock {
-            pushBlock()
-        }else{
-            let path = BBModuleA.frameworkBundle.path(forResource: "Reader", ofType: "pdf")
-            guard let path = path else { return }
-            let url: URL = .init(fileURLWithPath: path)
-            let con = UIDocumentInteractionController.init(url: url)
-            con.delegate = self
-            con.presentPreview(animated: true)
-        }
+        let con = BBCommon.moduleApp.getController(name: "A")
+        navigationController?.pushViewController(con, animated: true)
+    }
+    
+    @objc
+    func iconClick() {
+        
+        let path = BBModuleA.bundle.path(forResource: "Reader", ofType: "pdf")
+        guard let path = path else { return }
+        let url: URL = .init(fileURLWithPath: path)
+        let con = UIDocumentInteractionController.init(url: url)
+        con.delegate = self
+        con.presentPreview(animated: true)
+        
     }
 
 }

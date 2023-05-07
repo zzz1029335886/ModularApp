@@ -6,18 +6,26 @@
 //
 
 import UIKit
-//@_exported import Common
+import Common
+import ModuleA
+import ModuleB
 @_exported import Base
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        BBCommon.moduleApp.moduleRegister(register: ModuleA.BBModuleA())
+        
+        BBCommon.moduleApp.builderRegister(builder: Common.ModuleBuilder.ControllerBuilder.register(name: "B") {
+            return ModuleB.BBModuleBViewController()
+        })
+
         window = .init(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = BBTabBarController()
+        
         return true
     }
 

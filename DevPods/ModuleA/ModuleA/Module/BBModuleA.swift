@@ -9,13 +9,25 @@ import UIKit
 import Common
 
 public
-class BBModuleA: NSObject, ModuleProtocol {
-    public static var frameworkBundle = Bundle.init(for: BBModuleA.self)
+class BBModuleA: NSObject, ModuleRegister {
+    
+    
+    public var register: Common.ModuleBuilder{
+        return Common.ModuleBuilder(controllerBuilders: [.register(name: "A", builder: {
+            return BBModuleAViewController()
+        })])
+    }
+    
+    func ss() -> UIViewController {
+        return BBModuleAViewController()
+    }
+    
+    public static var bundle = Bundle.init(for: BBModuleA.self)
 }
 
 extension UIImage{
     
     convenience init?(inModuleNamed: String) {
-        self.init(named: inModuleNamed, in: BBModuleA.frameworkBundle, compatibleWith: nil)
+        self.init(named: inModuleNamed, in: BBModuleA.bundle, compatibleWith: nil)
     }
 }

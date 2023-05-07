@@ -31,9 +31,11 @@ class BBListSectionController: ListSectionController, BBAutoSizeCollectionViewCe
         }else if let lastSize = lastIndexCellSize[index]{
             size = lastSize
         }else{
-            size = .init(width: UIScreen.main.bounds.width, height: CGFloat(BBListSectionController.defaultHeight))
+            size = .init(width: BBCommon.kScreenWidth, height: CGFloat(BBListSectionController.defaultHeight))
         }
-                
+        
+//        printLog("\(self) - \(self.indexCellSize) - \(size.height)")
+
         return size
     }
     
@@ -70,24 +72,22 @@ class BBListSectionController: ListSectionController, BBAutoSizeCollectionViewCe
         return cell
     }
     
-    func autoSizeCollectionViewCellReload(_ cell: BBAutoSizeCollectionViewCell) {
+    func autoSizeCollectionViewCellReload(_ cell: BBAutoSizeCollectionViewCell, isLayout: Bool = false) {
         let index = cell.tag
         let lastSize = self.indexCellSize[index]
         self.indexCellSize[index] = nil
         self.lastIndexCellSize[index] = lastSize
-        self.reloadIndex(index, isLayout: false, isAnimated: false)
+        self.reloadIndex(index, isLayout: isLayout, isAnimated: false)
+    }
+    
+    func autoSizeCollectionViewCellComplete(_ cell: BBAutoSizeCollectionViewCell, size: CGSize) {
+        
     }
     
     func autoSizeCollectionViewCell(_ cell: BBAutoSizeCollectionViewCell, layout size: CGSize) {
         guard let adapter = adapter else { return }
         let index = cell.tag
-        
-        if let exitSize = self.indexCellSize[index], exitSize.equalTo(size) {
-            return
-        }
-        
         self.indexCellSize[index] = size
-        
         self.reloadIndex(index, isLayout: true, isAnimated: false)
         cell.frame.size = size
         self.displayDelegate?.listAdapter(adapter, willDisplay: self, cell: cell, at: index)
@@ -109,22 +109,8 @@ class BBListSectionController: ListSectionController, BBAutoSizeCollectionViewCe
     }
     
     func reloadIndex(_ index: Int, isLayout: Bool = false, isAnimated: Bool = true){
-        guard let adapter = adapter else { return }
-        
-        if isLayout {
-            adapter.updater.reloadData {
-                return self.collectionView
-            } reloadUpdate: {
-                self.reloadSelf(adapter: adapter, index: index)
-            } completion: { isCompletion in
-                
-            }
-        }else{
-            UIView.performWithoutAnimation {
-                self.indexCellSize[index] = nil
-                self.reloadSelf(adapter: adapter, index: index)
-            }
-        }
+        guard let adapter = adapter, let collectionView = collectionView else { return }
+        adapter.reload(collectionView: collectionView, section: self, index: index)
     }
 }
 
@@ -146,7 +132,7 @@ extension ListSectionController{
     
     func reloadSelf(adapter: ListAdapter) {
         guard let collectionView = adapter.collectionView else { return }
-        let index = adapter.section(for: self)
+        let index = self.section
         if index > 9999 {
             collectionContext?.performBatch(animated: true, updates: { context in
                 context.reload(self)
@@ -158,13 +144,14 @@ extension ListSectionController{
     
     func reloadSelf(adapter: ListAdapter, index: Int) {
         guard let collectionView = adapter.collectionView else { return }
-        let _index = adapter.section(for: self)
+        let _index = self.section
         if _index > 9999 {
             collectionContext?.performBatch(animated: true, updates: { context in
                 context.reload(self)
             }, completion: nil)
         } else {
-            adapter.updater.reloadItem(in: collectionView, from: .init(row: index, section: _index), to: .init(row: index, section: _index))
+            let inset = IndexSet.init(integer: _index)
+            adapter.updater.reload(collectionView, sections: inset)
         }
     }
     
