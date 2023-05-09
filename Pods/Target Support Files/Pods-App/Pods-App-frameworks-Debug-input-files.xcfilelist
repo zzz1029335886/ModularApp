@@ -15,6 +15,7 @@ ${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework
 ${BUILT_PRODUCTS_DIR}/ModuleA/ModuleA.framework
 ${BUILT_PRODUCTS_DIR}/ModuleAB/ModuleAB.framework
 ${BUILT_PRODUCTS_DIR}/ModuleB/ModuleB.framework
+${BUILT_PRODUCTS_DIR}/ModuleRun/ModuleRun.framework
 ${BUILT_PRODUCTS_DIR}/Networking/Networking.framework
 ${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework

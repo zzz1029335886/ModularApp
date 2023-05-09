@@ -1,0 +1,39 @@
+{
+  "name": "ModuleRun",
+  "version": "0.1.0",
+  "summary": "A short description of ModuleRun.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/zzz1029335886/ModuleRun",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zzz1029335886": "zzz1029335886@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/zzz1029335886/ModuleRun.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "ModuleRun/Module/**/*",
+  "dependencies": {
+    "Networking": [
+
+    ],
+    "Base": [
+
+    ],
+    "Common": [
+
+    ],
+    "ModuleA": [
+
+    ],
+    "ModuleB": [
+
+    ]
+  }
+}

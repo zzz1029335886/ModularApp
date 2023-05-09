@@ -7,12 +7,24 @@
 
 import UIKit
 import Common
+import ObjectiveC
 
 public
 class BBModuleB: NSObject, ModuleRegister {
-    public var register: Common.ModuleBuilder{
-        return Common.ModuleBuilder()
-    }
+    public var controllerBuilders: [Common.ModuleBuilder.ControllerBuilder]?
+    
+    public var funcBuilders: [Common.ModuleBuilder.FuncBuilder]? = [
+        .register(name: "B", builder: { params in
+            return "This is ModuleB"
+        })
+    ]
+    
+    
+    public var viewBuilders: [ModuleBuilder.ViewBuilder]? = [
+        .register(name: "B", builder: { frame in
+            return BView()
+        })
+    ]
     
     public static var bundle: Bundle = .init(for: BBModuleB.self)
     

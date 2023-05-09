@@ -6,10 +6,10 @@
 //
 
 import UIKit
-import Common
 import ModuleA
 import ModuleB
 @_exported import Base
+@_exported import Common
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,9 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         BBCommon.moduleApp.moduleRegister(register: ModuleA.BBModuleA())
         
-        BBCommon.moduleApp.builderRegister(builder: Common.ModuleBuilder.ControllerBuilder.register(name: "B") {
-            return ModuleB.BBModuleBViewController()
-        })
+//        BBCommon.moduleApp.builderRegister(builder: ModuleBuilder.ControllerBuilder.register(name: "B") {
+//            return ModuleB.BBModuleBViewController()
+//        })
 
         window = .init(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()

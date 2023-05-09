@@ -31,6 +31,14 @@ def common_pod
   pod 'Common', :path => 'DevPods/Common'
 end
 
+def module_manager_pod
+    pod 'ModuleManager', :path => 'DevPods/ModuleManager'
+end
+
+def module_run_pod
+    pod 'ModuleRun', :path => 'DevPods/ModuleRun'
+end
+
 def development_pods
   networking_pod
   module_a_pod
@@ -39,6 +47,8 @@ def development_pods
   common_pod
   module_ab_pod
   module_component_pod
+  module_manager_pod
+  module_run_pod
 end
 
 target 'App' do
@@ -94,5 +104,19 @@ target 'Component_Example' do
   project 'DevPods/Component/Example/Component.xcodeproj'
   
   module_component_pod
+end
+
+target 'ModuleManager_Example' do
+  use_frameworks!
+  project 'DevPods/ModuleManager/Example/ModuleManager.xcodeproj'
+  
+  module_manager_pod
+end
+
+target 'ModuleRun_Example' do
+  use_frameworks!
+  project 'DevPods/ModuleRun/Example/ModuleRun.xcodeproj'
+  
+  module_run_pod
 end
 

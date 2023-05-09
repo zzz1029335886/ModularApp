@@ -15,6 +15,16 @@
 		9114054FB8DFEBD21E3732EC /* Pods_ModuleA_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B9A90F4FFEF0DC0E86C4B4 /* Pods_ModuleA_Example.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D4E92E562A08E3A500153A98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4E92E4B2A08E3A500153A98 /* Networking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 607FACD01AFB9204008FA782;
+			remoteInfo = Networking_Example;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0B34B0799924925CD906FC5B /* ModuleA.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ModuleA.podspec; path = ../ModuleA.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		0FFB4604AF24264A6BE60093 /* Pods-ModuleA_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModuleA_Example.release.xcconfig"; path = "../../../../Pods/Target Support Files/Pods-ModuleA_Example/Pods-ModuleA_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -31,6 +41,19 @@
 		9E820D5A073B74B1D5A6D6C7 /* Pods-ModuleA_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModuleA_Tests.release.xcconfig"; path = "Target Support Files/Pods-ModuleA_Tests/Pods-ModuleA_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		A1214DBAEF95793E015BC2BA /* Pods_ModuleA_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ModuleA_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77F7F08B4D31872C27AE13D /* Pods-ModuleA_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModuleA_Example.debug.xcconfig"; path = "../../../../Pods/Target Support Files/Pods-ModuleA_Example/Pods-ModuleA_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		D4E92E402A08E3A500153A98 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		D4E92E432A08E3A500153A98 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D4E92E452A08E3A500153A98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		D4E92E472A08E3A500153A98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D4E92E482A08E3A500153A98 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D4E92E492A08E3A500153A98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D4E92E4A2A08E3A500153A98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4E92E4B2A08E3A500153A98 /* Networking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Networking.xcodeproj; sourceTree = "<group>"; };
+		D4E92E502A08E3A500153A98 /* BBNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBNetworking.swift; sourceTree = "<group>"; };
+		D4E92E512A08E3A500153A98 /* BBNetworkingParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBNetworkingParams.swift; sourceTree = "<group>"; };
+		D4E92E522A08E3A500153A98 /* BBNetworkingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBNetworkingResult.swift; sourceTree = "<group>"; };
+		D4E92E532A08E3A500153A98 /* Networking.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Networking.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D4E92E542A08E3A500153A98 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E9569A323F6320749DEB5139 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,6 +72,7 @@
 		388995A77CD6C4D32B99709E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4E92E3F2A08E3A500153A98 /* Networking */,
 				27B9A90F4FFEF0DC0E86C4B4 /* Pods_ModuleA_Example.framework */,
 				A1214DBAEF95793E015BC2BA /* Pods_ModuleA_Tests.framework */,
 			);
@@ -117,6 +141,67 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D4E92E3F2A08E3A500153A98 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D4E92E402A08E3A500153A98 /* LICENSE */,
+				D4E92E412A08E3A500153A98 /* Example */,
+				D4E92E4E2A08E3A500153A98 /* Networking */,
+				D4E92E532A08E3A500153A98 /* Networking.podspec */,
+				D4E92E542A08E3A500153A98 /* README.md */,
+			);
+			name = Networking;
+			path = ../../Networking;
+			sourceTree = "<group>";
+		};
+		D4E92E412A08E3A500153A98 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				D4E92E422A08E3A500153A98 /* Networking */,
+				D4E92E4B2A08E3A500153A98 /* Networking.xcodeproj */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		D4E92E422A08E3A500153A98 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D4E92E432A08E3A500153A98 /* ViewController.swift */,
+				D4E92E442A08E3A500153A98 /* LaunchScreen.xib */,
+				D4E92E462A08E3A500153A98 /* Main.storyboard */,
+				D4E92E482A08E3A500153A98 /* Images.xcassets */,
+				D4E92E492A08E3A500153A98 /* AppDelegate.swift */,
+				D4E92E4A2A08E3A500153A98 /* Info.plist */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		D4E92E4C2A08E3A500153A98 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4E92E572A08E3A500153A98 /* Networking_Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4E92E4E2A08E3A500153A98 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D4E92E4F2A08E3A500153A98 /* Module */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		D4E92E4F2A08E3A500153A98 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				D4E92E502A08E3A500153A98 /* BBNetworking.swift */,
+				D4E92E512A08E3A500153A98 /* BBNetworkingParams.swift */,
+				D4E92E522A08E3A500153A98 /* BBNetworkingResult.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -167,12 +252,28 @@
 			mainGroup = 607FACC71AFB9204008FA782;
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D4E92E4C2A08E3A500153A98 /* Products */;
+					ProjectRef = D4E92E4B2A08E3A500153A98 /* Networking.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* ModuleA_Example */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D4E92E572A08E3A500153A98 /* Networking_Example.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Networking_Example.app;
+			remoteRef = D4E92E562A08E3A500153A98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		607FACCE1AFB9204008FA782 /* Resources */ = {
@@ -277,6 +378,22 @@
 				607FACDF1AFB9204008FA782 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		D4E92E442A08E3A500153A98 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4E92E452A08E3A500153A98 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		D4E92E462A08E3A500153A98 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4E92E472A08E3A500153A98 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

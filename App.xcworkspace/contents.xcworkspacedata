@@ -28,4 +28,10 @@
    <FileRef
       location = "group:DevPods/Component/Example/Component.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:DevPods/ModuleManager/Example/ModuleManager.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:DevPods/ModuleRun/Example/ModuleRun.xcodeproj">
+   </FileRef>
 </Workspace>

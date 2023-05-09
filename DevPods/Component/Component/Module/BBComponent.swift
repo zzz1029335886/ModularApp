@@ -10,8 +10,8 @@ import Common
 
 public
 class BBComponent: NSObject, ModuleRegister {
-    public var register: Common.ModuleBuilder{
-        return Common.ModuleBuilder()
+    public var register: Common.ModuleRegister{
+        return Common.ModuleRegister()
     }
     
     

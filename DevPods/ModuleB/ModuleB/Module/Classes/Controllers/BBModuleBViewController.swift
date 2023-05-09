@@ -10,8 +10,8 @@ import Base
 import Common
 
 open
-class BBModuleBViewController: BBBaseViewController, Common.ModuleControllerBuilderProtocol {
-    public var moduleViewDidLoadBlock: Common.BBCommon.CallBack.NullCallBack?
+class BBModuleBViewController: BBBaseViewController, ModuleControllerBuilderProtocol {
+    public var moduleViewDidLoadBlock: BBCommon.CallBack.NullCallBack?
     
     public var moduleData: Any?
     
@@ -20,6 +20,12 @@ class BBModuleBViewController: BBBaseViewController, Common.ModuleControllerBuil
         super.viewDidLoad()
         
         title = "ModuleB"
+        
+        let aView = BBCommon.moduleApp.getView(builder: ModuleBuilder.ViewBuilder.create(name: "A",frame: .init(x: 0, y: 0, width: 100, height: 100))) ?? UIView()
+        
+        aView.center = .init(x: self.view.center.x, y: self.view.center.y - 100)
+        
+        self.view.addSubview(aView)
         
         let btn = UIButton.init()
         btn.setTitle("pushA", for: .normal)

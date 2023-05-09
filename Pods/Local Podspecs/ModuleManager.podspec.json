@@ -1,0 +1,31 @@
+{
+  "name": "ModuleManager",
+  "version": "0.1.0",
+  "summary": "A short description of ModuleManager.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/zzz1029335886/ModuleManager",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zzz1029335886": "zzz1029335886@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/zzz1029335886/ModuleManager.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "ModuleManager/Module/**/*.{swift}",
+  "resources": "ModuleManager/Module/**/*.{xcassets,json,storyboard,xib,xcdatamodeld,pdf}",
+  "dependencies": {
+    "ModuleA": [
+
+    ],
+    "ModuleB": [
+
+    ]
+  }
+}

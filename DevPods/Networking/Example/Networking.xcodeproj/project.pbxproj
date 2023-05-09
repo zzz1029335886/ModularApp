@@ -148,6 +148,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = CP4AA6NEGZ;
 						LastSwiftMigration = 0900;
 					};
 				};
@@ -367,6 +368,7 @@
 			baseConfigurationReference = C19B0448311CA52280D909E8 /* Pods-Networking_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CP4AA6NEGZ;
 				INFOPLIST_FILE = Networking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -383,6 +385,7 @@
 			baseConfigurationReference = 238275386539713E8678523B /* Pods-Networking_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CP4AA6NEGZ;
 				INFOPLIST_FILE = Networking/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

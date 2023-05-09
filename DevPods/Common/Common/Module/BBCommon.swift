@@ -83,9 +83,18 @@ public struct BBCommon {
     public static let kTabBarHeight : CGFloat = kBottomSafeHeight + 49
 }
 
+
 public
+/// 组件控制器创建协议
 protocol ModuleControllerBuilderProtocol {
     var moduleViewDidLoadBlock: BBCommon.CallBack.NullCallBack? {get set}
+    var moduleData: Any? {get set}
+    
+}
+
+public
+/// 组件视图创建协议
+protocol ModuleViewBuilderProtocol {
     var moduleData: Any? {get set}
     
 }
@@ -93,15 +102,14 @@ protocol ModuleControllerBuilderProtocol {
 
 
 public
+/// 组件控制器/视图创建者
 struct ModuleBuilder {
     public
+    /// 控制器创建者
     struct ControllerBuilder: ModuleControllerBuilderProtocol {
         public var name: String
-        
-        
         public var moduleViewDidLoadBlock: BBCommon.CallBack.NullCallBack?
         public var moduleData: Any?
-        
         public var builder: ModuleControllerBuilder?
         
         public
@@ -113,30 +121,59 @@ struct ModuleBuilder {
         static func create(name: String, moduleViewDidLoadBlock: BBCommon.CallBack.NullCallBack? = nil, moduleData: Any? = nil) -> ControllerBuilder {
             return ControllerBuilder(name: name, moduleViewDidLoadBlock: moduleViewDidLoadBlock, moduleData: moduleData)
         }
-        
-        
     }
     
-    public typealias ModuleControllerBuilder = () -> UIViewController&ModuleControllerBuilderProtocol
-    public typealias ModuleViewBuilder = () -> UIView
-
     public
-    var controllerBuilders: [ControllerBuilder]?
-    public
-    var viewBuilders: [String: ModuleViewBuilder]?
+    /// 视图创建者
+    struct ViewBuilder: ModuleViewBuilderProtocol {
+        public var name: String
+        public var moduleData: Any?
+        public var frame: CGRect?
+        public var builder: ModuleViewBuilder?
+        
+        public
+        static func register(name: String, builder: @escaping ModuleViewBuilder) -> ViewBuilder {
+            return ViewBuilder(name: name, builder: builder)
+        }
+        
+        public
+        static func create(name: String, moduleData: Any? = nil, frame: CGRect? = nil) -> ViewBuilder {
+            return ViewBuilder(name: name, moduleData: moduleData, frame: frame)
+        }
+    }
     
     public
-    init(controllerBuilders: [ControllerBuilder]? = nil,
-         viewBuilders: [String: ModuleViewBuilder]? = nil) {
-        self.controllerBuilders = controllerBuilders
-        self.viewBuilders = viewBuilders
+    /// 视图创建者
+    struct FuncBuilder {
+        public var name: String
+        public var params: Any?
+        public var builder: ModuleFuncBuilder?
+        
+        public
+        static func register(name: String, builder: @escaping ModuleFuncBuilder) -> FuncBuilder {
+            return FuncBuilder(name: name, builder: builder)
+        }
+        
+        public
+        static func create(name: String, params: Any? = nil) -> FuncBuilder {
+            return FuncBuilder(name: name, params: params)
+        }
     }
+    
+    public typealias ModuleControllerBuilder = () -> UIViewController & ModuleControllerBuilderProtocol
+    public typealias ModuleViewBuilder = (_ frame: CGRect? ) -> UIView & ModuleViewBuilderProtocol
+    public typealias ModuleFuncBuilder = (_ params: Any? ) -> Any?
 }
 
 public
 protocol ModuleRegister: NSObjectProtocol {
     static var bundle: Bundle { get set }
-    var register: ModuleBuilder { get }
+    
+    var controllerBuilders: [ModuleBuilder.ControllerBuilder]? { get }
+    
+    var viewBuilders: [ModuleBuilder.ViewBuilder]? { get }
+    
+    var funcBuilders: [ModuleBuilder.FuncBuilder]? { get }
      
     
 //    moduleControllerRegister()
@@ -148,31 +185,33 @@ public
 class ModuleApp: NSObject {
     public static var shared = ModuleApp()
     public var modulleRegisters: [ModuleRegister] = []
-    public var builderRegisters: [ModuleBuilder.ControllerBuilder] = []
+    public var controllerBuilderRegisters: [ModuleBuilder.ControllerBuilder] = []
+    public var viewBuilderRegisters: [ModuleBuilder.ViewBuilder] = []
+    public var funcBuilderRegisters: [ModuleBuilder.FuncBuilder] = []
     
     public func moduleRegister(register: ModuleRegister) {
         modulleRegisters.append(register)
     }
-    
-    public func builderRegister(builder: ModuleBuilder.ControllerBuilder) {
-        builderRegisters.append(builder)
+    public func register(controllerBuilder: ModuleBuilder.ControllerBuilder) {
+        controllerBuilderRegisters.append(controllerBuilder)
+    }
+    public func register(viewBuilder: ModuleBuilder.ViewBuilder) {
+        viewBuilderRegisters.append(viewBuilder)
+    }
+    public func register(funcBuilder: ModuleBuilder.FuncBuilder) {
+        funcBuilderRegisters.append(funcBuilder)
     }
     
-    func compare(outBuilder: ModuleBuilder.ControllerBuilder, inBuilder: ModuleBuilder.ControllerBuilder) -> UIViewController?{
+    func compareController(outBuilder: ModuleBuilder.ControllerBuilder, inBuilder: ModuleBuilder.ControllerBuilder) -> UIViewController?{
         if outBuilder.name == inBuilder.name{
-            
             if let builder = inBuilder.builder {
-                
                 var con = builder()
                 con.moduleViewDidLoadBlock = outBuilder.moduleViewDidLoadBlock
                 con.moduleData = outBuilder.moduleData
                 return con
             }
-            
-//            return UIViewController()
-            
+            return nil
         }
-        
         return nil
     }
     
@@ -181,15 +220,15 @@ class ModuleApp: NSObject {
     }
     
     public func getController(builder: ModuleBuilder.ControllerBuilder) -> UIViewController {
-        for builderRegister in builderRegisters {
-            if let con = compare(outBuilder: builder, inBuilder: builderRegister){
+        for builderRegister in controllerBuilderRegisters {
+            if let con = compareController(outBuilder: builder, inBuilder: builderRegister){
                 return con
             }
         }
         
         for register in modulleRegisters {
-            for registerBuilder in register.register.controllerBuilders ?? [] {
-                if let con = compare(outBuilder: builder, inBuilder: registerBuilder){
+            for registerBuilder in register.controllerBuilders ?? [] {
+                if let con = compareController(outBuilder: builder, inBuilder: registerBuilder){
                     return con
                 }
             }
@@ -197,16 +236,72 @@ class ModuleApp: NSObject {
         return UIViewController()
     }
     
-    public func getView(name: String) -> UIView {
+    func compareView(outBuilder: ModuleBuilder.ViewBuilder, inBuilder: ModuleBuilder.ViewBuilder) -> UIView?{
+        if outBuilder.name == inBuilder.name{
+            if let _builder = inBuilder.builder {
+                var view = _builder(outBuilder.frame)
+                view.moduleData = outBuilder.moduleData
+                return view
+            }
+            return nil
+        }
+        return nil
+    }
+    
+    public func getView(name: String) -> UIView? {
+        return getView(builder: .create(name: name))
+    }
+    
+    public func getView(builder: ModuleBuilder.ViewBuilder) -> UIView? {
+        for viewRegister in viewBuilderRegisters {
+            if let view = compareView(outBuilder: builder, inBuilder: viewRegister){
+                return view
+            }
+        }
+        
         for register in modulleRegisters {
-            for builder in register.register.viewBuilders ?? [:] {
-                if builder.key == name{
-                    return builder.value()
+            for registerBuilder in register.viewBuilders ?? [] {
+                if let view = compareView(outBuilder: builder, inBuilder: registerBuilder){
+                    return view
                 }
             }
         }
         
-        return UIView()
+        return nil
+    }
+    
+    func compareAction(outBuilder: ModuleBuilder.FuncBuilder, inBuilder: ModuleBuilder.FuncBuilder) -> Any?{
+        if outBuilder.name == inBuilder.name{
+            if let builder = inBuilder.builder {
+                return builder(outBuilder.params)
+            }
+            return nil
+        }
+        return nil
+    }
+    
+    @discardableResult
+    public func action(name: String, params: Any? = nil) -> Any? {
+        return action(builder: .create(name: name, params: params))
+    }
+    
+    @discardableResult
+    public func action(builder: ModuleBuilder.FuncBuilder) -> Any? {
+        for funcRegister in funcBuilderRegisters {
+            if let result = compareAction(outBuilder: builder, inBuilder: funcRegister){
+                return result
+            }
+        }
+        
+        for register in modulleRegisters {
+            for registerBuilder in register.funcBuilders ?? [] {
+                if let result = compareAction(outBuilder: builder, inBuilder: registerBuilder){
+                    return result
+                }
+            }
+        }
+        
+        return nil
     }
 }
 

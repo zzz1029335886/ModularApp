@@ -9,12 +9,14 @@
 import UIKit
 import Networking
 import ModuleA
-import ModuleB
+import Common
 
-class ViewController: BBModuleAViewController {
+class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        BBCommon.moduleApp.moduleRegister(register: BBModuleA())
         
         let button = UIButton.init(type: .contactAdd)
         button.setTitle("PageA", for: .normal)
@@ -27,8 +29,7 @@ class ViewController: BBModuleAViewController {
     
     @objc
     func buttonClick() {
-        let con = BBModuleBViewController()
-        self.navigationController?.pushViewController(con, animated: true)
+        
     }
 
     override func didReceiveMemoryWarning() {

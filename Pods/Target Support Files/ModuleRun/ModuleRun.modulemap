@@ -1,0 +1,6 @@
+framework module ModuleRun {
+  umbrella header "ModuleRun-umbrella.h"
+
+  export *
+  module * { export * }
+}

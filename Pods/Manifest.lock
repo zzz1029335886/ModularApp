@@ -71,6 +71,15 @@ PODS:
     - Base
     - Common
     - Networking
+  - ModuleManager (0.1.0):
+    - ModuleA
+    - ModuleB
+  - ModuleRun (0.1.0):
+    - Base
+    - Common
+    - ModuleA
+    - ModuleB
+    - Networking
   - Networking (0.1.0):
     - Alamofire (~> 4.9.1)
     - HandyJSON (~> 5.0.2)
@@ -84,6 +93,8 @@ DEPENDENCIES:
   - ModuleA (from `DevPods/ModuleA`)
   - ModuleAB (from `DevPods/ModuleAB`)
   - ModuleB (from `DevPods/ModuleB`)
+  - ModuleManager (from `DevPods/ModuleManager`)
+  - ModuleRun (from `DevPods/ModuleRun`)
   - Networking (from `DevPods/Networking`)
 
 SPEC REPOS:
@@ -114,6 +125,10 @@ EXTERNAL SOURCES:
     :path: DevPods/ModuleAB
   ModuleB:
     :path: DevPods/ModuleB
+  ModuleManager:
+    :path: DevPods/ModuleManager
+  ModuleRun:
+    :path: DevPods/ModuleRun
   Networking:
     :path: DevPods/Networking
 
@@ -134,10 +149,12 @@ SPEC CHECKSUMS:
   ModuleA: 3279a7b8dd9ed475d1ab0d64416701e9ce60d598
   ModuleAB: 057b494e95e89709d3775df1b2540bcff1509df0
   ModuleB: d2d34e981b3f911139e2566df6b7864b8159d87e
+  ModuleManager: 2253e3d47684ab1efe08473887cd53802247820a
+  ModuleRun: e53e726bdfe44a15b07ba9c53d8c11de21c6c1f5
   Networking: cb17da1512da47e3eb13fdc4d0507f03ca767b3c
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   TZImagePickerController: fb446ac06ae9c217bc849185646a68465bcd0dd4
 
-PODFILE CHECKSUM: 2c51d40002ca3772085fbe772095e7b67aff8be3
+PODFILE CHECKSUM: b2384c8f847d727d5c856defcfe60fb52479b971
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

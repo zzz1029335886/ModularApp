@@ -34,17 +34,19 @@ class BBModuleAViewController: BBBaseViewController, Common.ModuleControllerBuil
         imageBtn.center = self.view.center
         
         let btn = UIButton.init()
-        btn.setTitle("pushA", for: .normal)
+        btn.setTitle("pushB", for: .normal)
         btn.setTitleColor(.systemBlue, for: .normal)
         btn.sizeToFit()
         btn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
         self.view.addSubview(btn)
-        btn.center = .init(x: self.view.center.x, y: self.view.center.y + 100)        
+        btn.center = .init(x: self.view.center.x, y: self.view.center.y + 100)
+        
+//        var AView.init()
     }
     
     @objc
     func btnClick() {
-        let con = BBCommon.moduleApp.getController(name: "A")
+        let con = BBCommon.moduleApp.getController(name: "B")
         navigationController?.pushViewController(con, animated: true)
     }
     

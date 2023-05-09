@@ -10,17 +10,35 @@ import Common
 
 public
 class BBModuleA: NSObject, ModuleRegister {
-    
-    
-    public var register: Common.ModuleBuilder{
-        return Common.ModuleBuilder(controllerBuilders: [.register(name: "A", builder: {
+    public var controllerBuilders: [Common.ModuleBuilder.ControllerBuilder]? = [
+        .register(name: "A", builder: {
             return BBModuleAViewController()
-        })])
+        })
+    ]
+    
+    public var viewBuilders: [Common.ModuleBuilder.ViewBuilder]? = [
+        .register(name: "A", builder: { frame in
+            if let frame = frame{
+                return AView(frame: frame)
+            }
+            return AView()
+            
+        })
+    ]
+    
+    public var funcBuilders: [Common.ModuleBuilder.FuncBuilder]? = [
+        .register(name: "A", builder: { params in
+            return "This is ModuleA"
+        })
+    ]
+    
+    
+    public override init() {
+        
     }
     
-    func ss() -> UIViewController {
-        return BBModuleAViewController()
-    }
+    
+    
     
     public static var bundle = Bundle.init(for: BBModuleA.self)
 }
